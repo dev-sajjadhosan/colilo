@@ -1,65 +1,95 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Code2, Info } from "lucide-react"; // Optional icons for DX
+
+import image from "../../public/image4.svg";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="relative flex flex-col items-center justify-center bg-background">
+      <div className="flex items-center justify-between h-screen">
+        <div className="flex flex-col justify-center gap-3 h-full">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent -z-10" />
+
+          <div className="flex flex-col gap-6 px-4">
+            <h1 className="text-7xl md:text-9xl font-extrabold tracking-tight text-muted-foreground">
+              Colilo
+            </h1>
+
+            <h3 className="max-w-[600px] text-muted-foreground text-lg md:text-xl leading-relaxed">
+              <span className="font-semibold text-foreground underline decoration-primary/50 underline-offset-4">
+                Colilo
+              </span>{" "}
+              an open-source laboratory for creative experiments. From unique
+              authentication flows to modern UI components—whatever new idea I
+              have today, I build and share it here.
+            </h3>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+              <Button size="xl" className="px-8 font-medium gap-2 group">
+                Explore Components{" "}
+                <ArrowRight className="group-hover:translate-x-2 duration-200" />
+              </Button>
+              <Button
+                size="xl"
+                variant={"ghost"}
+                className="px-8 font-medium gap-2"
+              >
+                <Info /> About
+              </Button>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="relative size-110 flex items-center justify-center">
+          <div className="absolute top-0 left-5 w-60 h-full z-20 bg-muted/10 rounded-full animate-bounce duration-100"></div>
+          <Image src={image} width={200} height={200} alt="Imaege" />
         </div>
-      </main>
+      </div>
+      <section className="mt-30 flex flex-col items-center gap-20 w-full">
+        <div className="flex items-center justify-center w-fit">
+          <Separator className="h-1! rounded-full" />
+          <Badge
+            variant={"ghost"}
+            className="text-lg font-medium px-6 py-2 bg-muted/20"
+          >
+            New Components
+          </Badge>
+          <Separator className="h-1! rounded-full" />
+        </div>
+        <div className="grid grid-cols-2 gap-7 w-11/12">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Card
+              key={i}
+              className="bg-muted/20 border-0 h-120 hover:bg-muted/40"
+            >
+              <CardHeader className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold">Layout 01</h3>
+                <div className="flex items-center gap-1">
+                  <Badge variant={'secondary'}>Authenticate</Badge>
+                  <Badge variant={'secondary'}>new</Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="h-full">00</CardContent>
+              <CardFooter className="gap-3">
+                <Button size={"lg"} variant={"secondary"}>
+                  View Code <Code2 />
+                </Button>
+                <Button size={"lg"} variant={"secondary"}>
+                  Share
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
