@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Info } from "lucide-react"; // Optional icons for DX
+import { ArrowRight, Code2, Github, Info } from "lucide-react"; // Optional icons for DX
 
-import image from "../../public/image4.svg";
+import image from "../../../public/image4.svg";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -11,6 +11,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -34,10 +35,12 @@ export default function Home() {
             </h3>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-              <Button size="xl" className="px-8 font-medium gap-2 group">
-                Explore Components{" "}
-                <ArrowRight className="group-hover:translate-x-2 duration-200" />
-              </Button>
+              <Link href={"/blocks"}>
+                <Button size="xl" className="px-8 font-medium gap-2 group">
+                  Explore Components{" "}
+                  <ArrowRight className="group-hover:translate-x-2 duration-200" />
+                </Button>
+              </Link>
               <Button
                 size="xl"
                 variant={"ghost"}
@@ -48,21 +51,23 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="relative size-110 flex items-center justify-center">
-          <div className="absolute top-0 left-5 w-60 h-full z-20 bg-muted/10 rounded-full animate-bounce duration-100"></div>
-          <Image src={image} width={200} height={200} alt="Imaege" />
+        <div className="relative size-110 flex items-center justify-center gap-5">
+          <div className=" w-20 h-60 z-20 bg-muted/30 rounded-full animate-bounce duration-100"></div>
+          <div className=" w-20 h-80 z-20 bg-muted/25 rounded-full animate-bounce duration-100 delay-100"></div>
+          <div className=" w-20 h-60 z-20 bg-muted/20 rounded-full animate-bounce duration-100 delay-150"></div>
+          {/* <Image src={image} width={200} height={200} alt="Imaege" /> */}
         </div>
       </div>
       <section className="mt-30 flex flex-col items-center gap-20 w-full">
-        <div className="flex items-center justify-center w-fit">
-          <Separator className="h-1! rounded-full" />
-          <Badge
-            variant={"ghost"}
-            className="text-lg font-medium px-6 py-2 bg-muted/20"
-          >
-            New Components
-          </Badge>
-          <Separator className="h-1! rounded-full" />
+        <div className="flex items-center justify-center w-full">
+          <div className="text-lg font-semibold rounded-full text-center w-60 py-2 bg-transparent border-r-4 border-l-4 text-muted-foreground duration-300 hover:w-80 hover:bg-muted/30 overflow-hidden text-nowrap group">
+            <span className="group-hover:hidden animate-out">
+              New Components
+            </span>
+            <span className="hidden group-hover:inline animate-in text-center">
+              Explore New Creativity
+            </span>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-7 w-11/12">
           {Array.from({ length: 4 }).map((_, i) => (
@@ -73,8 +78,8 @@ export default function Home() {
               <CardHeader className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Layout 01</h3>
                 <div className="flex items-center gap-1">
-                  <Badge variant={'secondary'}>Authenticate</Badge>
-                  <Badge variant={'secondary'}>new</Badge>
+                  <Badge variant={"secondary"}>Authenticate</Badge>
+                  <Badge variant={"secondary"}>new</Badge>
                 </div>
               </CardHeader>
               <CardContent className="h-full">00</CardContent>
@@ -90,6 +95,30 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <footer className="mt-30 flex justify-between items-center w-full">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-[15rem] font-extrabold text-muted/50">Colilo</h1>
+          <h3 className="text-lg font-semibold -mt-20 text-center text-muted-foreground tracking-[.5rem]">
+            Find my creativity in 1 Place.
+          </h3>
+        </div>
+        <aside className="flex-1">
+          {/* <h3 className="text-9xl font-bold text-center mb-5 text-orange-500/50">
+            2&#$&6
+          </h3> */}
+          <div className="grid grid-cols-2 w-md mx-auto">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <Button
+                key={i}
+                variant={"ghost"}
+                className="bg-muted/20 rounded-none! h-15 flex gap-3 items-center justify-center font-semibold "
+              >
+                <Github /> Github
+              </Button>
+            ))}
+          </div>
+        </aside>
+      </footer>
     </div>
   );
 }
