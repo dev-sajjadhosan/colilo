@@ -12,6 +12,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import Link from "next/link";
+import BlockCard from "@/components/modules/root/block-card";
 
 export default function Home() {
   return (
@@ -71,27 +72,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 gap-7 w-11/12">
           {Array.from({ length: 4 }).map((_, i) => (
-            <Card
-              key={i}
-              className="bg-muted/20 border-0 h-120 hover:bg-muted/40"
-            >
-              <CardHeader className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold">Layout 01</h3>
-                <div className="flex items-center gap-1">
-                  <Badge variant={"secondary"}>Authenticate</Badge>
-                  <Badge variant={"secondary"}>new</Badge>
-                </div>
-              </CardHeader>
-              <CardContent className="h-full">00</CardContent>
-              <CardFooter className="gap-3">
-                <Button size={"lg"} variant={"secondary"}>
-                  View Code <Code2 />
-                </Button>
-                <Button size={"lg"} variant={"secondary"}>
-                  Share
-                </Button>
-              </CardFooter>
-            </Card>
+           <BlockCard key={i} data={null} />
           ))}
         </div>
       </section>
