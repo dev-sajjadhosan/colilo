@@ -42,13 +42,15 @@ export default function Home() {
                   <ArrowRight className="group-hover:translate-x-2 duration-200" />
                 </Button>
               </Link>
-              <Button
-                size="xl"
-                variant={"ghost"}
-                className="px-8 font-medium gap-2"
-              >
-                <Info /> About
-              </Button>
+              <Link href={"/about"}>
+                <Button
+                  size="xl"
+                  variant={"ghost"}
+                  className="px-8 font-medium gap-2"
+                >
+                  <Info /> About
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -72,9 +74,18 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 gap-7 w-11/12">
           {Array.from({ length: 4 }).map((_, i) => (
-           <BlockCard key={i} data={null} />
+            <BlockCard key={i} data={null} />
           ))}
         </div>
+        <Link href={"/blocks"}>
+          <Button
+            variant={"ghost"}
+            className="rounded-full group px-10! py-8  text-md font-semibold tracking-wide"
+          >
+            View All
+            <ArrowRight className="group-hover:translate-x-2 duration-200" />
+          </Button>
+        </Link>
       </section>
       <footer className="mt-30 flex justify-between items-center w-full">
         <div className="flex flex-col gap-1">

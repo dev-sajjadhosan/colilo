@@ -26,11 +26,11 @@ export default function BlockPage() {
       <div className="flex justify-between items-center w-full">
         <div className="flex items-center gap-2">
           <Button
-            size={"icon-lg"}
+            className="rounded-full"
             variant={"secondary"}
             onClick={() => router.back()}
           >
-            <ArrowBigLeftDashIcon />
+            <ArrowBigLeftDashIcon /> Back
           </Button>
           <h3 className="text-lg font-semibold">My Thoughts</h3>
         </div>
